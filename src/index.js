@@ -16,7 +16,7 @@ function onSearch(e) {
 
     const inputSearchCountry = e.target.value.trim();
     
-    if (inputSearchCountry.length = 0) {
+    if (!inputSearchCountry) {
         resetMarkup(ul);
         resetMarkup(infoCountry);
     } 
