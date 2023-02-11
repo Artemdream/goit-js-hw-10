@@ -19,16 +19,19 @@ function onSearch(e) {
     if (!inputSearchCountry) {
         resetMarkup(ul);
         resetMarkup(infoCountry);
+        AbortController();
     } 
         fetchCountries(inputSearchCountry)
             .then(dataCountry => {
                 if (dataCountry.length > 10) {
                     Notiflix.Notify.info(
                         "Too many matches found. Please enter a more specific name.");
+                // } else if (dataCountry === "") {
+                //     AbortController()
                 } else if (dataCountry.length >= 2 && dataCountry.length <= 10) {
                     renderCountryList(dataCountry);
                     resetMarkup(infoCountry);
-                } else {
+                }  else {
                     resetMarkup(ul);
                     renderCountry(dataCountry);
                 }
@@ -69,5 +72,3 @@ function renderCountry(counrties) {
 function resetMarkup(e) {
     e.innerHTML = "";
 };    
-  
-
